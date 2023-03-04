@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= htmlWebpackPlugin.options.title %></title>
+</head>
+<body>
+    <div class="controlGroup">
+        <button id="sendDigitalButton" class="btn">Toggle Digital</button>
+        <p id="currentDigitalValue">false</p>
+    </div>
+    <div class="controlGroup">
+        <button id="sendAnalogButton" class="btn">Send Analog</button>
+        <p id="currentAnalogValue">32767</p>
+        <input type="range" min="0" max="65535" value="32767" id="analogSlider">
+    </div>
+    <div class="controlGroup">
+        <button id="sendSerialButton" class="btn">Send Serial</button>
+        <input type="text" name="Data" id="currentSerialValue" placeholder="Placeholder">
+    </div>
+</body>
+</html>
