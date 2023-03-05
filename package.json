@@ -7,8 +7,10 @@
     "build": "webpack",
     "dev": "webpack serve",
     "archive": "rimraf dist && ch5-cli archive -p ch5webpacktypescripttemplate -d build -o dist",
-    "deploy": "ch5-cli deploy -H 192.168.1.22 -p -t touchscreen dist/ch5webpacktypescripttemplate.ch5z --slow-mode",
-    "onestep": "npm run build && npm run archive && npm run deploy",
+    "deploypanel": "ch5-cli deploy -H 192.168.1.22 -p -t touchscreen dist/ch5webpacktypescripttemplate.ch5z --slow-mode",
+    "deployxpanel": "ch5-cli deploy -H 192.168.1.223 -p -t web dist/ch5webpacktypescripttemplate.ch5z",
+    "panel": "npm run build && npm run archive && npm run deploypanel",
+    "xpanel": "npm run build && npm run archive && npm run deployxpanel",
     "postinstall": "patch-package"
   },
   "keywords": [],
@@ -33,6 +35,7 @@
   },
   "dependencies": {
     "@crestron/ch5-crcomlib": "^2.2.0",
+    "@crestron/ch5-webxpanel": "^2.0.0",
     "eruda": "^2.11.2"
   }
 }
