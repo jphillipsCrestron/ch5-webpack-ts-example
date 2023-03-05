@@ -20,9 +20,9 @@ eruda.init();
 
 // Define XPanel connection settings
 const xpanelConfig: Partial<WebXPanelConfigParams> = { 
-    host: '192.168.1.87',
-    ipId: '0x04',
-    roomId: 'JPHILLIPS',
+    host: '',
+    ipId: '',
+    roomId: '',
 };
 
 // Initialize WebXPanel if this is an xpanel instead of a panel/mobile project
