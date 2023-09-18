@@ -4,14 +4,12 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "webpack",
+    "build": "webpack && rimraf dist && ch5-cli archive -p ch5webpacktypescripttemplate -d build -o dist",
     "dev": "webpack serve",
-    "archive": "rimraf dist && ch5-cli archive -p ch5webpacktypescripttemplate -d build -o dist",
     "deploypanel": "ch5-cli deploy -H 192.168.1.22 -p -t touchscreen dist/ch5webpacktypescripttemplate.ch5z --slow-mode",
     "deployxpanel": "ch5-cli deploy -H 192.168.1.223 -p -t web dist/ch5webpacktypescripttemplate.ch5z",
-    "panel": "npm run build && npm run archive && npm run deploypanel",
-    "xpanel": "npm run build && npm run archive && npm run deployxpanel",
-    "postinstall": "patch-package"
+    "panel": "npm run build && npm run deploypanel",
+    "xpanel": "npm run build && npm run deployxpanel"
   },
   "keywords": [],
   "author": "",
@@ -19,6 +17,7 @@
   "devDependencies": {
     "@babel/core": "^7.21.0",
     "@babel/preset-env": "^7.20.2",
+    "@crestron/ch5-utilities-cli": "^2.0.0",
     "@types/node": "^18.14.4",
     "babel-loader": "^9.1.2",
     "css-loader": "^6.7.3",
@@ -34,8 +33,8 @@
     "webpack-dev-server": "^4.11.1"
   },
   "dependencies": {
-    "@crestron/ch5-crcomlib": "^2.2.0",
-    "@crestron/ch5-webxpanel": "^2.0.0",
+    "@crestron/ch5-crcomlib": "^2.5.0",
+    "@crestron/ch5-webxpanel": "^2.5.0",
     "eruda": "^2.11.2"
   }
 }
