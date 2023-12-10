@@ -25,38 +25,38 @@ The entry point is where the Crestron libraries will be loaded into the applicat
 
 ### Initialize the WebXPanel library if running in a browser:
 ```ts
-    import { getWebXPanel, runsInContainerApp } from '@crestron/ch5-webxpanel';
+import { getWebXPanel, runsInContainerApp } from '@crestron/ch5-webxpanel';
 
-    const { isActive, WebXPanel, WebXPanelConfigParams, WebXPanelEvents } = getWebXPanel(!runsInContainerApp());
+const { isActive, WebXPanel, WebXPanelConfigParams, WebXPanelEvents } = getWebXPanel(!runsInContainerApp());
 
-    if(isActive) {
-        WebXPanelConfigParams.host = '0.0.0.0';
-        WebXPanelConfigParams.ipId = '0x03';
-        WebXPanelConfigParams.roomId = '1';
+if(isActive) {
+    WebXPanelConfigParams.host = '0.0.0.0';
+    WebXPanelConfigParams.ipId = '0x03';
+    WebXPanelConfigParams.roomId = '1';
 
-        console.log(`Initializing WebXPanel with config: ${JSON.stringify(WebXPanelConfigParams)}`);
-        WebXPanel.initialize(WebXPanelConfigParams);
-    }
+    console.log(`Initializing WebXPanel with config: ${JSON.stringify(WebXPanelConfigParams)}`);
+    WebXPanel.initialize(WebXPanelConfigParams);
+}
 ```
 
 ### Receive data via joins from the control system:
 ```ts
-    window.CrComLib.subscribeState('b', '1', (value: boolean) => {
-        // Listens for digital 1 from the processor
-    });
+window.CrComLib.subscribeState('b', '1', (value: boolean) => {
+    // Listens for digital 1 from the processor
+});
 
-    window.CrComLib.subscribeState('n', '1', (value: number) => {
-        // Listens for analog 1 from the processor
-    });
+window.CrComLib.subscribeState('n', '1', (value: number) => {
+    // Listens for analog 1 from the processor
+});
 
-    window.CrComLib.subscribeState('s', '1', (value: string) => {
-        // Listens for serial 1 from the processor
-    });
+window.CrComLib.subscribeState('s', '1', (value: string) => {
+    // Listens for serial 1 from the processor
+});
 ```
 
 ### Send data via joins to the control system:
 ```ts
-  const sendDigital = (value: boolean) => window.CrComLib.publishEvent('b', '1', value);
-  const sendAnalog = (value: number) => window.CrComLib.publishEvent('n', '1', value);
-  const sendSerial = (value: string) => window.CrComLib.publishEvent('s', '1', value);
+const sendDigital = (value: boolean) => window.CrComLib.publishEvent('b', '1', value);
+const sendAnalog = (value: number) => window.CrComLib.publishEvent('n', '1', value);
+const sendSerial = (value: string) => window.CrComLib.publishEvent('s', '1', value);
 ```
