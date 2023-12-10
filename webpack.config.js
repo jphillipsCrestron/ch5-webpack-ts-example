@@ -67,7 +67,7 @@ module.exports = {
     },
     plugins: [
         new HtmlWebpackPlugin({
-            title: 'CH5 Webpack App',
+            title: 'CH5 Webpack TS App',
             filename: 'index.html',
             template: 'src/index.html',
         })
