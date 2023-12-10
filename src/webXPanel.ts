@@ -4,8 +4,9 @@ const { isActive, WebXPanel, WebXPanelConfigParams, WebXPanelEvents } = getWebXP
 
 // Initialize WebXPanel if this is an xpanel instead of a panel/mobile project
 if(isActive) {
-    WebXPanelConfigParams.host = '192.168.1.223';
-    WebXPanelConfigParams.ipId = '0x04';
+    WebXPanelConfigParams.host = '0.0.0.0';
+    WebXPanelConfigParams.ipId = '0x03';
+    WebXPanelConfigParams.roomId = '1';
 
     console.log(`Initializing WebXPanel with config: ${JSON.stringify(WebXPanelConfigParams)}`);
     WebXPanel.initialize(WebXPanelConfigParams);
