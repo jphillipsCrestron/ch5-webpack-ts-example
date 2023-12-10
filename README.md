@@ -23,6 +23,25 @@ Run the `deploy:xpanel` script to upload the .ch5z to the control system as a We
 
 The entry point is where the Crestron libraries will be loaded into the application. In this demo src/index.ts is treated as the entry point for the Crestron libraries.
 
+### Add CrComLib to the window object
+```ts
+import * as CrComLib from '@crestron/ch5-crcomlib';
+
+declare global {
+  interface Window {
+    CrComLib: typeof CrComLib;
+  }
+}
+
+interface CrComLibType {
+    CrComLib: typeof CrComLib;
+}
+
+// Assign to window object
+window.CrComLib = (CrComLib as unknown as CrComLibType).CrComLib;
+// Can now be accessed anywhere as window.CrComLib
+```
+
 ### Initialize the WebXPanel library if running in a browser:
 ```ts
 import { getWebXPanel, runsInContainerApp } from '@crestron/ch5-webxpanel';
